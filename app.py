@@ -4,84 +4,60 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 # ---------------------------
-# PAGE CONFIG (PRO LOOK)
+# PAGE CONFIG
 # ---------------------------
-st.set_page_config(
-    page_title="Student Job Analysis",
-    page_icon="🎓",
-    layout="wide"
-)
+st.set_page_config(page_title="Student Job Analysis", layout="wide")
+
+st.title("🎓 Student Job Journey Analysis Dashboard")
 
 # ---------------------------
-# LOAD DATA
+# LOAD DATA (SAFE PATH)
 # ---------------------------
 df = pd.read_csv("data/students_job_data.csv")
 
-# ---------------------------
-# SIDEBAR FILTERS (PRO FEATURE)
-# ---------------------------
-st.sidebar.title("🔎 Filters")
-
-cgpa_filter = st.sidebar.slider("Minimum CGPA", 0.0, 10.0, 5.0)
-intern_filter = st.sidebar.selectbox("Internships", sorted(df["Internships"].unique()))
-
-filtered_df = df[
-    (df["CGPA"] >= cgpa_filter) &
-    (df["Internships"] == intern_filter)
-]
+# FIX: convert Placement Yes/No → 1/0
+df["Placement"] = df["Placement"].astype(str).str.strip().map({"Yes": 1, "No": 0})
 
 # ---------------------------
-# HEADER
+# DEBUG CHECK (IMPORTANT)
 # ---------------------------
-st.title("🎓 Student Job Journey Analysis Dashboard")
-st.markdown("### 📊 HR-Friendly Analytics & Placement Insights")
+st.write("Data Loaded Successfully ✔")
+st.write(df.head())
 
 # ---------------------------
-# KPI METRICS (VERY IMPORTANT FOR IMPRESSION)
+# KPI METRICS
 # ---------------------------
 col1, col2, col3 = st.columns(3)
 
 col1.metric("Total Students", len(df))
-col2.metric("Placed Students", df["Placement"].sum())
+col2.metric("Placed Students", int(df["Placement"].sum()))
 col3.metric("Placement Rate", f"{df['Placement'].mean()*100:.2f}%")
 
 st.markdown("---")
 
 # ---------------------------
-# DATA PREVIEW
+# CHART 1: PLACEMENT
 # ---------------------------
-st.subheader("📌 Filtered Data Preview")
-st.dataframe(filtered_df)
-
-# ---------------------------
-# VISUALIZATION 1
-# ---------------------------
-st.subheader("🎯 Placement Distribution")
+st.subheader("Placement Distribution")
 
 fig1, ax1 = plt.subplots()
 sns.countplot(x="Placement", data=df, ax=ax1)
 st.pyplot(fig1)
 
 # ---------------------------
-# VISUALIZATION 2
+# CHART 2: CGPA vs SALARY
 # ---------------------------
-st.subheader("📈 CGPA vs Salary")
+st.subheader("CGPA vs Salary")
 
 fig2, ax2 = plt.subplots()
 sns.scatterplot(x="CGPA", y="Salary_LPA", data=df, ax=ax2)
 st.pyplot(fig2)
 
 # ---------------------------
-# VISUALIZATION 3
+# CHART 3: ATTENDANCE
 # ---------------------------
-st.subheader("📊 Attendance vs Placement")
+st.subheader("Attendance vs Placement")
 
 fig3, ax3 = plt.subplots()
 sns.boxplot(x="Placement", y="Attendance", data=df, ax=ax3)
 st.pyplot(fig3)
-
-# ---------------------------
-# FOOTER
-# ---------------------------
-st.markdown("---")
-st.markdown("🚀 Built by Ruchitha| Streamlit ML Project | Student Job Analysis")
