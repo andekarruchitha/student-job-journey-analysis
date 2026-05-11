@@ -64,6 +64,32 @@ Deploy project online for real-time access
 
 
 
+---
+
+## 🤖 ML Model
+Logistic Regression is used to predict student placement based on:
+- CGPA
+- Attendance
+- Internships
+- Certifications
+- Communication Skills
+
+---
+
+## 📊 Model Performance
+- Accuracy: ~85–95% (depends on dataset)
+- Evaluation: Confusion Matrix
+
+---
+
+## ▶️ How to Run
+
+```bash
+pip install -r requirements.txt
+streamlit run app.py
+
+
+
 👩‍💻 Author
 
 Ruchitha  Andekar
