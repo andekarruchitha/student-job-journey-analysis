@@ -97,4 +97,32 @@ GitHub: https://github.com/andekarruchitha
 
 LinkedIn: https://www.linkedin.com/in/andekar-ruchitha-ba2167280/
 
+pip install -r requirements.txt
+streamlit run app.py
+
+
+
+👩‍💻 Author
+
+Ruchitha  Andekar
+GitHub: https://github.com/andekarruchitha
+
+LinkedIn: https://www.linkedin.com/in/andekar-ruchitha-ba2167280/
+
+pip install -r requirements.txt
+streamlit run app.py
+
+
+
+👩‍💻 Author
+
+Ruchitha  Andekar
+GitHub: https://github.com/andekarruchitha
+
+LinkedIn: https://www.linkedin.com/in/andekar-ruchitha-ba2167280/
+
+
+https://student-job-journey-analysis-g7evstbqwxdhvcgu9jgwwh.streamlit.app/
+
+
 
