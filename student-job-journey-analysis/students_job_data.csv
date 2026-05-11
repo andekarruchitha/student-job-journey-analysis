@@ -1,0 +1,11 @@
+Student_ID,CGPA,Attendance,Internships,Certifications,Communication_Skills,Placement,Salary_LPA
+101,8.5,92,2,3,8,Yes,6.0
+102,7.2,85,1,1,6,Yes,4.0
+103,6.1,70,0,0,5,No,0.0
+104,9.1,96,3,4,9,Yes,10.0
+105,5.8,65,0,1,4,No,0.0
+106,7.8,88,2,2,7,Yes,5.5
+107,6.5,75,1,1,6,No,0.0
+108,8.9,94,3,5,9,Yes,9.0
+109,5.9,60,0,0,4,No,0.0
+110,7.0,82,1,2,6,Yes,4.5
